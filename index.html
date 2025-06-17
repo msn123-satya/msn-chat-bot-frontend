@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MSN Chatbot</title>
+
+  <!-- Marked.js for Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Highlight.js for Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>🤖 AI Chatbot</h1>
+    <div id="chatbox"></div>
+
+    <div class="input-container">
+      <div class="input-wrapper">
+        <textarea id="userInput" placeholder="Type a message or use voice..." autofocus rows="1"
+  style="flex: 1; padding: 14px 50px 14px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; resize: none; overflow: hidden;"></textarea>
+        <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceRecording()">
+          <svg class="mic-icon" viewBox="0 0 24 24">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+          <svg class="check-icon" viewBox="0 0 24 24" style="display: none;">
+    <path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29 10.59 10.59 16.89 4.29z"/>
+          </svg>
+        </button>
+      </div>
+      <button class="send-btn" onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+</body>
+</html>

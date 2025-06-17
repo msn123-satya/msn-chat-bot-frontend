@@ -1,0 +1,287 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: black;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    h1 {
+      padding: 20px 0;
+      color: #222;
+      text-align: center;
+      background-color: #f7f8fa;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    #chatbox {
+      flex: 1;
+      overflow-y: auto;
+      background: #f0f2f5;
+      padding: 25px;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ddd;
+      border-bottom: none;
+    }
+
+    .message {
+      max-width: 95%;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.6;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: #0078ff;
+      color: white;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background-color: #f0f2f5;
+      color: #000;
+    }
+
+    .input-container {
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      display: flex;
+      align-items: flex-end; /* Keeps button at bottom */
+      gap: 10px;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background: white;
+    }
+
+    .input-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px 50px 14px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .voice-btn {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .voice-btn:hover {
+      background-color:#e8f0fe;
+    }
+
+    .voice-btn.listening {
+     animation: pulse 1s infinite;
+  background-color: #ff4d4d;
+  border-radius: 50%;
+    }
+
+    .voice-btn.listening:hover {
+      background-color: red;
+    }
+
+    .send-btn {
+  height: 44px;
+  width: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+    .send-btn:hover {
+      background-color: #0056b3; 
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 0px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 14px;
+      color: #111;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #e9ecef;
+      color: #333;
+    }
+
+    .copy-btn.copied {
+      color: #28a745;
+      border-color: #28a745;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 12px;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    a {
+      color: #0078ff;
+      text-decoration: underline;
+    }
+
+    .mic-icon {
+      width: 20px;
+      height: 20px;
+      fill: #666;
+    }
+
+    .voice-btn.listening .mic-icon {
+      fill: white;
+    }
+
+    .check-icon {
+      color:black;
+      width: 20px;
+      height: 20px;
+      fill: #666;
+    }
+
+    .voice-btn.listening .check-icon {
+      fill: white;
+    }
+
+    .copy-icon {
+      width: 19px;
+      height: 16px;
+      fill: currentColor;
+    }
+    .bot-reply > * {
+  margin-bottom: 20px;
+}
+
+.bot-reply pre {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bot-reply h1, 
+.bot-reply h2, 
+.bot-reply h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #0078ff;
+}
+
+.bot-reply p {
+  margin-bottom: 12px;
+}
+/* Animation for the mic button when recording */
+.voice-btn.recording {
+  position: relative;
+  animation: pulse 1.2s infinite;
+  background-color: #ff4d4d;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 77, 77, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+  }
+}
+
